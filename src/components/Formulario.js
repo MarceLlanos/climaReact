@@ -16,7 +16,7 @@ export default class Formulario extends Component {
     }
 
     // enviar por props
-
+    this.props.datosConsulta(respuesta)
     // opcional resetar el formulario
 
   }
