@@ -1,11 +1,11 @@
-import React from 'react'
-import { tsPropertySignature } from '@babel/types'
+import React from 'react';
+
 const Header = (props) =>{
   return(
     <div>
       <nav>
         <div className = "nav-wrapper light-blue darken-2">
-          <a className = "brand-logo">{props.title}</a>
+          <a href= "" className = "brand-logo">{props.title}</a>
         </div>
       </nav>
     </div>
