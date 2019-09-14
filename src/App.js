@@ -6,10 +6,12 @@ class App extends Component {
   render() {
 		return (
 			<div className="app">
-			<Header
-				title = "Clima React"
-			/>
-			<Formulario />
+				<Header
+					title = "Clima React"
+				/>
+				<Formulario 
+					
+				/>
 			</div>
 		);
 	}

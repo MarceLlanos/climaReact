@@ -1,18 +1,37 @@
 import React, { Component } from 'react'
 
 export default class Formulario extends Component {
+
+  //Crear los refs
+  ciudadRef = React.createRef();
+  paisRef =React.createRef();
+
+  buscarClima = (e) => {
+    e.preventDefault();
+
+    //crear el objeto y leer los refs
+    const respuesta = {
+      ciudad : this.ciudadRef.current.value,
+      pais : this.paisRef.current.value
+    }
+
+    // enviar por props
+
+    // opcional resetar el formulario
+
+  }
   render() {
     return (
       <div className = "contenedor-form">
         <div className = "container">
           <div className = "row">
-            <form>
+            <form onSubmit = {this.buscarClima}>
               <div className = "input-filed col s12 m8 l4 offset-m2">
-                <input id = "ciudad" type = "text"/>
+                <input id = "ciudad" type = "text" ref = {this.ciudadRef}/>
                 <label htmlFor = "ciudad" >Ciudad:</label>
               </div>
               <div className = "input-file col s12 m8 l4 offset-m2">
-                <select >
+                <select ref = {this.paisRef} >
                   <option value = "" defaultValue>Elige un pais</option>
                   <option value = "AR">Argentina</option>
                   <option value = "CO" >Colombia</option>
