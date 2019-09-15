@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Error from './components/Error';
+import Clima from './components/Clima'
 
 class App extends Component {
 
@@ -26,7 +27,9 @@ class App extends Component {
 		if(respuesta.ciudad === '' || respuesta.pais === ''){
 			this.setState({error: true});
 		}else{
-			this.setState({consulta :respuesta})
+			this.setState({
+				consulta :respuesta, 
+				error : false})
 		}
 	}
 
@@ -43,7 +46,7 @@ class App extends Component {
 			return respuesta.json();
 		}).then(datos => {
 			// Verifica si ya se esta imprimiendo la respuesta y se agrega al state
-			this.setState({resultado : datos})
+			this.setState({resultado : datos});
 		}). catch(error => {
 			//En caso de que haya un error con la api se finaliza con el catch para poder debugear
 			console.log(error)
@@ -61,6 +64,8 @@ class App extends Component {
 
 		if(error){
 			resultado = <Error mensaje = 'Ambos campos son obligatorios'/>
+		}else{
+			resultado = <Clima resultado = {this.state.resultado}/>
 		}
 
 		return (
