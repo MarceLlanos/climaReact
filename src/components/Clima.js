@@ -6,7 +6,7 @@ class Clima extends Component {
     
     return ( 
       <div className = "container">
-        <h1>Desde clima</h1>
+        <h1>Desde clima.js</h1>
       </div>
      );
   }

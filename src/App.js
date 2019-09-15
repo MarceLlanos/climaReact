@@ -12,8 +12,11 @@ class App extends Component {
 		resultado : {}
 	}
 
-	componentDidUpdate() {
-		this.consultarApi();
+	//Metodo que revisa el state, una vez actualizado mandara a consultar la api
+	componentDidUpdate(prevProvs, prevState) {
+		if(prevState.consulta !== this.state.consulta){
+			this.consultarApi();
+		}
 	}
 	
 
@@ -37,7 +40,7 @@ class App extends Component {
 		const {ciudad, pais} = this.state.consulta;
 		if(!ciudad || !pais) return null;
 
-		const appid = '';
+		const appid = 'bf35dd2f96229c44a5203ef2e283288e';
 		let url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appid}`;
 		
 		// query con fetch api
@@ -47,14 +50,10 @@ class App extends Component {
 		}).then(datos => {
 			// Verifica si ya se esta imprimiendo la respuesta y se agrega al state
 			this.setState({resultado : datos});
-		}). catch(error => {
+		}).catch(error => {
 			//En caso de que haya un error con la api se finaliza con el catch para poder debugear
-			console.log(error)
-		})
-
-		//leer la url y agregar la api key
-
-		//Consultar con fetch
+			console.log(error);
+		});
 	}
 
   render() {
