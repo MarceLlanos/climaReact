@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Error from './components/Error';
-import Clima from './components/Clima'
+import Clima from './components/Clima';
+
 
 class App extends Component {
 

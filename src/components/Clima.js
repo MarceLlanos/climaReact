@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Clima extends Component {
   
@@ -37,6 +38,10 @@ class Clima extends Component {
       </div>
      );
   }
+}
+
+Clima.propTypes = {
+  resultado: PropTypes.object.isRequired
 }
  
 export default Clima;
