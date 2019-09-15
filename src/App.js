@@ -7,7 +7,8 @@ class App extends Component {
 
 	state = {
 		error : '',
-		consulta : {}
+		consulta : {},
+		resultado : {}
 	}
 
 	componentDidUpdate() {
@@ -37,6 +38,16 @@ class App extends Component {
 		let url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appid}`;
 		
 		// query con fetch api
+		fetch(url).then(respuesta => {
+			// Tenemos que ver en que modo puede venir la respuesta en algunos casos se puede retornar como JSON o como una cadena
+			return respuesta.json();
+		}).then(datos => {
+			// Verifica si ya se esta imprimiendo la respuesta y se agrega al state
+			this.setState({resultado : datos})
+		}). catch(error => {
+			//En caso de que haya un error con la api se finaliza con el catch para poder debugear
+			console.log(error)
+		})
 
 		//leer la url y agregar la api key
 
