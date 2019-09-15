@@ -29,7 +29,7 @@ export default class Formulario extends Component {
             <form onSubmit = {this.buscarClima}>
               <div className = "input-filed col s12 m8 l4 offset-m2">
                 <input id = "ciudad" type = "text" ref = {this.ciudadRef}/>
-                <label htmlFor = "ciudad" >Ciudad:</label>
+                <label htmlFor = 'ciudad' >Ciudad:</label>
               </div>
               <div className = "input-file col s12 m8 l4 offset-m2">
                 <select ref = {this.paisRef} id = 'pais'>

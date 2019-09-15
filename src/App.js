@@ -23,9 +23,9 @@ class App extends Component {
 		}
 	}
   render() {
+		// Componente condicional
 		const error = this.state.error;
 		let resultado;
-
 
 		if(error){
 			resultado = <Error mensaje = 'Ambos campos son obligatorios'/>
@@ -39,6 +39,7 @@ class App extends Component {
 				<Formulario 
 					datosConsulta = {this.datosConsulta}
 				/>
+				
 				{resultado}
 			</div>
 		);
