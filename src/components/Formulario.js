@@ -4,7 +4,7 @@ export default class Formulario extends Component {
 
   //Crear los refs
   ciudadRef = React.createRef();
-  paisRef =React.createRef();
+  paisRef = React.createRef();
 
   buscarClima = (e) => {
     e.preventDefault();
@@ -16,7 +16,8 @@ export default class Formulario extends Component {
     }
 
     // enviar por props
-    this.props.datosConsulta(respuesta)
+    this.props.datosConsulta(respuesta);
+
     // opcional resetar el formulario
 
   }
@@ -31,7 +32,7 @@ export default class Formulario extends Component {
                 <label htmlFor = "ciudad" >Ciudad:</label>
               </div>
               <div className = "input-file col s12 m8 l4 offset-m2">
-                <select ref = {this.paisRef} >
+                <select ref = {this.paisRef} id = 'pais'>
                   <option value = "" defaultValue>Elige un pais</option>
                   <option value = "AR">Argentina</option>
                   <option value = "CO" >Colombia</option>
@@ -42,7 +43,7 @@ export default class Formulario extends Component {
                   <option value = "PE" >Peru</option>
                   <option value = "BO" >Bolivia</option>
                 </select>
-                <label htmlFor= "pais">Pais: </label>
+                <label htmlFor= "pais" >Pais: </label>
               </div>
               <div className = "input-field col s12 m8 l4 buscador">
                 <input type = "submit" className = "waves-effect waves-light btn-large yellow accent-4" value = "Buscar"/>
