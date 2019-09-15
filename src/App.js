@@ -6,8 +6,14 @@ import Error from './components/Error';
 class App extends Component {
 
 	state = {
-		error : ''
+		error : '',
+		consulta : {}
 	}
+
+	componentDidUpdate() {
+		this.consultarApi();
+	}
+	
 
 	componentDidMount() {
 		this.setState({
@@ -19,9 +25,24 @@ class App extends Component {
 		if(respuesta.ciudad === '' || respuesta.pais === ''){
 			this.setState({error: true});
 		}else{
-			console.log('Todos los campos estan correctamente llenos');
+			this.setState({consulta :respuesta})
 		}
 	}
+
+	consultarApi = () => {
+		const {ciudad, pais} = this.state.consulta;
+		if(!ciudad || !pais) return null;
+
+		const appid = '';
+		let url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appid}`;
+		
+		// query con fetch api
+
+		//leer la url y agregar la api key
+
+		//Consultar con fetch
+	}
+
   render() {
 		// Componente condicional
 		const error = this.state.error;
